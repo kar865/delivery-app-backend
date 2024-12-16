@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\CartItem;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +14,7 @@ class OrderController extends Controller
 
     public function store()
     {
-        $cartItems = Cart::where('user_id', auth()->id)->get();
+        $cartItems = CartItem::where('user_id', auth()->id)->get();
 
         if ($cartItems->isEmpty()) {
             return response()->json(['message' => 'The cart is empty'], 400);

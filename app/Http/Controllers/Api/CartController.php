@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\CartItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -22,8 +23,8 @@ public function add(Request $request)
         return response()->json(['message' => 'Not enough stock','available_stock' => $product->stock], 400);
     }
 
-    $cartItem = Cart::create([
-        'user_id' => auth()->id,
+    $cartItem = CartItem::create([
+        'user_id' =>auth('sanctum')->id(),  
         'product_id' => $product->id,
         'quantity' => $request->quantity,
     ]);
@@ -33,7 +34,7 @@ public function add(Request $request)
 
 public function index()
 {
-    $cartItems = Cart::with('product')->where('user_id', auth()->id)->get();
+    $cartItems = CartItem::where('user_id', auth('sanctum')->id())->get();
     return response()->json($cartItems);
 }
 
@@ -43,7 +44,7 @@ public function update(Request $request, $cartItemId)
         'quantity' => 'required|integer|min:1',
     ]);
 
-    $cartItem = Cart::findOrFail($cartItemId);
+    $cartItem = CartItem::findOrFail($cartItemId);
     $product = $cartItem->product;
 
     if ($product->stock < $request->quantity) {
@@ -59,7 +60,7 @@ public function update(Request $request, $cartItemId)
 
 public function destroy($cartItemId)
 {
-    $cartItem = Cart::findOrFail($cartItemId);
+    $cartItem = CartItem::findOrFail($cartItemId);
     $cartItem->delete();
 
     return response()->json(['message' => 'Item removed from cart']);
