@@ -14,27 +14,27 @@ class ProductSeeder extends Seeder
     {
         $faker = Faker::create();
 
-       
+
         $products = [
             'Pizza Hut' => [
-                ['name' => 'Neapolitan Pizza', 'price' => 10.99],
-                ['name' => 'Cheese Pizza', 'price' => 8.99],
-                ['name' => 'Garlic Bread', 'price' => 4.99]
+                ['name' => 'Neapolitan Pizza', 'price' => 10.99, 'stock' => 25],
+                ['name' => 'Cheese Pizza', 'price' => 8.99, 'stock' => 20],
+                ['name' => 'Garlic Bread', 'price' => 4.99, 'stock' => 45]
             ],
             'Best Buy' => [
-                ['name' => 'Samsung Galaxy S21', 'price' => 799.99],
-                ['name' => 'Sony TV 55 inch', 'price' => 499.99],
-                ['name' => 'Apple MacBook Pro', 'price' => 1299.99]
+                ['name' => 'Samsung Galaxy S21', 'price' => 799.99, 'stock' => 10],
+                ['name' => 'Sony TV 55 inch', 'price' => 499.99, 'stock' => 4],
+                ['name' => 'Apple MacBook Pro', 'price' => 1299.99, 'stock' => 75]
             ],
             'Nike' => [
-                ['name' => 'Air Max Sneakers', 'price' => 129.99],
-                ['name' => 'Nike Hoodie', 'price' => 49.99],
-                ['name' => 'Nike Running Shorts', 'price' => 29.99]
+                ['name' => 'Air Max Sneakers', 'price' => 129.99, 'stock' => 23],
+                ['name' => 'Nike Hoodie', 'price' => 49.99, 'stock' => 35],
+                ['name' => 'Nike Running Shorts', 'price' => 29.99, 'stock' => 28]
             ],
-           
+
         ];
 
-      
+
         foreach ($products as $storeName => $productList) {
             $store = Store::where('name', $storeName)->first();
 
@@ -42,8 +42,10 @@ class ProductSeeder extends Seeder
                 Product::create([
                     'name' => $product['name'],
                     'price' => $product['price'],
-                    'description' => $faker->sentence,  
-                    'store_id' => $store->id, 
+                    'stock' => $product['stock'],
+                    'description' => $faker->sentence,
+                    'store_id' => $store->id,
+                    'image_url' => $faker->imageUrl(640, 480, 'business', true, 'Product'),
                 ]);
             }
         }
