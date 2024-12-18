@@ -89,16 +89,13 @@ class OrderItemController extends Controller
             return response()->json(['message' => 'Order item not found'], 404);
         }
 
-        // Remove the order item
         $orderItem->delete();
 
-        // Recalculate the order's total price
         $order->total = $order->items->sum(function ($item) {
             return $item->price * $item->quantity;
         });
         $order->save();
 
-        // Restore stock
         $product = $orderItem->product;
         $product->increment('stock', $orderItem->quantity);
 
