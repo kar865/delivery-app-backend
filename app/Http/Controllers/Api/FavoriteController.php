@@ -43,4 +43,28 @@ class FavoriteController extends Controller
             'message' => 'Product added to favorites successfully.'
         ]);
     }
+
+    public function destroy(Request $request)
+    {
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+        ]);
+
+        $user = auth('sanctum')->user();
+        $productId = $request->input('product_id');
+
+        $favorite = Favorite::where('user_id', $user->id)->where('product_id', $productId)->first();
+
+        if (!$favorite) {
+            return response()->json([
+                'message' => 'This product is not in your favorites.'
+            ], 404);
+        }
+
+        $favorite->delete();
+
+        return response()->json([
+            'message' => 'Product removed from favorites successfully.'
+        ]);
+    }
 }
