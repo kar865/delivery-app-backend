@@ -13,11 +13,19 @@ class ProductController extends Controller
         $products = Product::where('store_id', $storeId)->get();
         return response()->json($products);
     }
-    
+
     public function show($storeId, $productId)
     {
         $store = Store::findOrFail($storeId);
         $product = $store->products()->findOrFail($productId);
         return response()->json($product);
     }
+    // public function home()
+    // {
+    //     $products = Product::latest()->take(10)->get();
+
+    //     return response()->json([
+    //         'products' => $products
+    //     ]);
+    // }
 }
