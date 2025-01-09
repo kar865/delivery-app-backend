@@ -15,14 +15,12 @@ class StoreSeeder extends Seeder
         $faker = Faker::create();
 
         $stores = [
-            'Food' => ['Pizza Hut', 'McDonald\'s', 'Starbucks', 'Subway'],
-            'Electronics' => ['Best Buy', 'Apple Store', 'Samsung', 'GameStop'],
-            'Fashion' => ['Zara', 'H&M', 'Nike', 'Adidas'],
-            'Books' => ['Barnes & Noble', 'Books-A-Million', 'Waterstones'],
-            'Home Appliances' => ['Home Depot', 'Lowe\'s', 'Target'],
-            'Furniture' => ['IKEA', 'Ashley Furniture', 'Wayfair'],
-            'Sports' => ['Sports Authority'],
-            'Toys' => ['Toys R Us', 'Target', 'Walmart'],
+            'Food' => ['Pizza Hut', 'McDonald\'s', 'Starbucks'],
+            'Electronics' => [ 'Apple Store', 'Samsung'],
+            'Fashion' => ['Zara','Adidas'],
+            'Books' => ['Books-A-Million'],
+            'Home Appliances' => ['Target'],
+            'Furniture' => ['IKEA', 'Ashley Furniture'],
         ];
 
         foreach ($stores as $categoryName => $storeNames) {

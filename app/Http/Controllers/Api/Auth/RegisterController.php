@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use Carbon\Carbon;
 use App\Mail\SendOtpMail;
+use App\Models\UserPhoto;
 
 class RegisterController extends Controller
 {
@@ -37,10 +38,16 @@ class RegisterController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
-        $otp = rand(100000, 999999);
-        $hashedOtp = bcrypt($otp);  
-        $otpExpiry = Carbon::now()->addMinutes(10); 
+        $defaultAvatar = UserPhoto::find(11); 
 
+        if ($defaultAvatar) {
+            $user->profile_photo = $defaultAvatar->photo_url;
+        }
+        
+        $otp = rand(100000, 999999);
+        $hashedOtp = bcrypt($otp);
+        $otpExpiry = Carbon::now()->addMinutes(10);
+        
         $user->otp = $hashedOtp;
         $user->otp_expiry = $otpExpiry;
         $user->save();
@@ -50,7 +57,7 @@ class RegisterController extends Controller
 
         return response()->json([
             'message' => 'User created successfully. Please verify your email.',
-            'email' => $user->email,  
+            'email' => $user->email,
         ], 201);
     }
 

@@ -10,14 +10,20 @@ class CategorySeeder extends Seeder
 {
     public function run()
     {
-        
         $categories = [
-            'Food', 'Electronics', 'Fashion', 'Books', 'Home Appliances', 'Furniture', 'Sports', 'Toys'
+            1 => 'Food', 
+            2 => 'Electronics', 
+            3 => 'Fashion', 
+            4 => 'Books', 
+            5 => 'Home Appliances', 
+            6 => 'Furniture', 
         ];
 
-
-        foreach ($categories as $category) {
-            Category::create(['name' => $category]);
+        foreach ($categories as $id => $category) {
+            Category::create([
+                'id' => $id,
+                'name' => $category
+            ]);
         }
     }
 }

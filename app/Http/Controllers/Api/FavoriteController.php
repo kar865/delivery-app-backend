@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Favorite;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 
@@ -12,10 +14,29 @@ class FavoriteController extends Controller
     public function index()
     {
         $user = auth('sanctum')->user();
-        $favorites = Favorite::where('user_id', $user->id)->with('product')->get();
-
-        return response()->json(['favorites' => $favorites]);
+    
+        $favorites = Favorite::where('user_id', $user->id)
+            ->with(['product.store.category']) 
+            ->get();
+    
+        $groupedFavorites = $favorites->groupBy(function ($favorite) {
+            return $favorite->category_id; 
+        });
+    
+        $categories = [];
+    
+        foreach ($groupedFavorites as $categoryId => $categoryFavorites) {
+            $category = Category::find($categoryId);
+    
+            $categories[] = [
+                'category_name' => $category->name,
+                'favorites' => $categoryFavorites,
+            ];
+        }
+    
+        return response()->json(['categories' => $categories]);
     }
+    
 
     public function store(Request $request)
     {
@@ -34,9 +55,13 @@ class FavoriteController extends Controller
             ], 400);
         }
 
+        $product = Product::find($productId);
+        $categoryId = $product->store->category->id; 
+
         Favorite::create([
             'user_id' => $user->id,
             'product_id' => $productId,
+            'category_id' => $categoryId, 
         ]);
 
         return response()->json([

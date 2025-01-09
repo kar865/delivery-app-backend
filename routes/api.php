@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\FavoriteController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\OrderItemController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\SearchController;
 use App\Http\Controllers\Api\StoreController;
 
@@ -19,8 +20,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/categories/{categoryId}/stores', [StoreController::class, 'index']);
     Route::get('/stores/{storeId}/products', [ProductController::class, 'index']);
     Route::get('/stores/{storeId}/products/{productId}', [ProductController::class, 'show']);
+
     //To show x number of products at the home page
-    // Route::get('/home/products', [ProductController::class, 'home']); 
+    Route::get('/home/products', [ProductController::class, 'home']); 
 
     Route::post('/cart', [CartController::class, 'add']);
     Route::put('/cart/{cartItemId}', [CartController::class, 'update']);
@@ -49,6 +51,29 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/favorites', [FavoriteController::class, 'destroy']);
 });
 
+
+// Profile routes 
+Route::middleware('auth:sanctum')->group(function () {
+    // Get the authenticated user's profile data
+    Route::get('/profile', [ProfileController::class, 'getProfile']);
+
+    // Get the list of available profile photos
+    Route::get('/profile/photos', [ProfileController::class, 'getProfilePhotos']);
+
+    Route::put('/profile/photo', [ProfileController::class, 'updateProfilePhoto']);
+
+    Route::put('/profile/password', [ProfileController::class, 'updatePassword']);
+
+    Route::put('/profile/first-name', [ProfileController::class, 'updateFirstName']);
+
+    Route::put('/profile/last-name', [ProfileController::class, 'updateLastName']);
+
+    Route::put('/profile/email', [ProfileController::class, 'updateEmail']);
+
+    Route::put('/profile/phone-number', [ProfileController::class, 'updatePhoneNumber']);
+
+    Route::put('/profile/location', [ProfileController::class, 'updateLocation']);
+});
 
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/verify-otp', [RegisterController::class, 'verifyOtp'])->middleware('throttle:5,1');

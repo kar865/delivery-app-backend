@@ -20,12 +20,12 @@ class ProductController extends Controller
         $product = $store->products()->findOrFail($productId);
         return response()->json($product);
     }
-    // public function home()
-    // {
-    //     $products = Product::latest()->take(10)->get();
+    public function home()
+    {
+        $products = Product::latest()->take(10)->get();
 
-    //     return response()->json([
-    //         'products' => $products
-    //     ]);
-    // }
+        return response()->json([
+            'products' => $products
+        ]);
+    }
 }
