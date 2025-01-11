@@ -66,8 +66,8 @@ class ProductSeeder extends Seeder
             ],
             'Target' => [
                 ['name' => 'Electric Grill', 'price' => 59.99, 'stock' => 80],
-                ['name' => 'Comforter Set', 'price' => 49.99, 'stock' => 100],
-                ['name' => 'Iron', 'price' => 29.99, 'stock' => 75],
+                ['name' => 'Microwave', 'price' => 49.99, 'stock' => 100],
+                ['name' => 'Washing Machine', 'price' => 29.99, 'stock' => 75],
                 ['name' => 'Vacuum Cleaner', 'price' => 89.99, 'stock' => 60],
                 ['name' => 'Coffee Maker', 'price' => 39.99, 'stock' => 120],
             ],
