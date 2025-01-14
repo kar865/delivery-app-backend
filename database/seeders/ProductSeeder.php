@@ -52,15 +52,13 @@ class ProductSeeder extends Seeder
                 ['name' => 'High Heel Shoes', 'price' => 79.99, 'stock' => 50, 'photo_url' => 'storage/product_photos/zara_high_heel_shoes.png', 'description' => 'Elegant high heels perfect for formal occasions.'],
             ],
             'Adidas' => [
-                ['name' => 'Adidas Jacket', 'price' => 79.99, 'stock' => 40, 'photo_url' => 'storage/product_photos/adidas_jacket.png', 'description' => 'A comfortable and stylish jacket for sports or casual wear.'],
                 ['name' => 'Adidas T-shirt', 'price' => 29.99, 'stock' => 85, 'photo_url' => 'storage/product_photos/adidas_tshirt.png', 'description' => 'A simple and breathable t-shirt for active wear or casual days.'],
                 ['name' => 'Adidas Backpack', 'price' => 34.99, 'stock' => 30, 'photo_url' => 'storage/product_photos/adidas_backpack.png', 'description' => 'A durable backpack to carry your essentials comfortably.'],
                 ['name' => 'Adidas Gym Bag', 'price' => 39.99, 'stock' => 45, 'photo_url' => 'storage/product_photos/adidas_gym_bag.png', 'description' => 'A spacious gym bag to carry all your workout gear.'],
             ],
             'Books-A-Million' => [
-                ['name' => 'The Lord of the Rings', 'price' => 19.99, 'stock' => 50, 'photo_url' => 'storage/product_photos/lord_of_the_rings.png', 'description' => 'A classic fantasy book full of adventure and epic journeys.'],
                 ['name' => 'Harry Potter and the Sorcerer\'s Stone', 'price' => 24.99, 'stock' => 30, 'photo_url' => 'storage/product_photos/harry_potter_sorcerers_stone.png', 'description' => 'The first book in the Harry Potter series filled with magic and mystery.'],
-                ['name' => 'A Game of Thrones', 'price' => 13.99, 'stock' => 45, 'photo_url' => 'storage/product_photos/game_of_thrones.png', 'description' => 'A thrilling fantasy book full of political drama.'],
+                ['name' => 'A Song Of Ice And Fire', 'price' => 13.99, 'stock' => 45, 'photo_url' => 'storage/product_photos/song_of_ice_and_fire.png', 'description' => 'A thrilling fantasy book full of political drama.'],
                 ['name' => 'Crime and Punishment', 'price' => 17.99, 'stock' => 45, 'photo_url' => 'storage/product_photos/crime_and_punishment.png', 'description' => 'A classic novel exploring morality, guilt, and redemption.'],
             ],
             'Target' => [
@@ -68,7 +66,6 @@ class ProductSeeder extends Seeder
                 ['name' => 'Microwave', 'price' => 49.99, 'stock' => 100, 'photo_url' => 'storage/product_photos/microwave.png', 'description' => 'A microwave to quickly heat up your food with just the press of a button.'],
                 ['name' => 'Washing Machine', 'price' => 29.99, 'stock' => 75, 'photo_url' => 'storage/product_photos/washing_machine.png', 'description' => 'A basic washing machine for your everyday laundry needs.'],
                 ['name' => 'Vacuum Cleaner', 'price' => 89.99, 'stock' => 60, 'photo_url' => 'storage/product_photos/vacuum_cleaner.png', 'description' => 'A powerful vacuum to keep your home clean and dust-free.'],
-                ['name' => 'Coffee Maker', 'price' => 39.99, 'stock' => 120, 'photo_url' => 'storage/product_photos/coffee_maker.png', 'description' => 'A simple coffee maker to start your day with a fresh cup of coffee.'],
             ],
             'IKEA' => [
                 ['name' => 'Sofa Bed', 'price' => 199.99, 'stock' => 50, 'photo_url' => 'storage/product_photos/sofa_bed.png', 'description' => 'A comfortable sofa that can be turned into a bed.'],
@@ -81,7 +78,6 @@ class ProductSeeder extends Seeder
                 ['name' => 'King Size Bed', 'price' => 499.99, 'stock' => 30, 'photo_url' => 'storage/product_photos/king_size_bed.png', 'description' => 'A large and comfortable bed perfect for a good night’s sleep.'],
                 ['name' => 'Leather Sofa', 'price' => 799.99, 'stock' => 25, 'photo_url' => 'storage/product_photos/leather_sofa.png', 'description' => 'A stylish and comfortable leather sofa for your living room.'],
                 ['name' => 'Coffee Table', 'price' => 149.99, 'stock' => 50, 'photo_url' => 'storage/product_photos/coffee_table.png', 'description' => 'A modern coffee table that fits perfectly in any living room.'],
-                ['name' => 'Dining Chair Set', 'price' => 189.99, 'stock' => 40, 'photo_url' => 'storage/product_photos/dining_chair_set.png', 'description' => 'A set of chairs for your dining table, comfortable and stylish.'],
                 ['name' => 'Nightstand', 'price' => 79.99, 'stock' => 100, 'photo_url' => 'storage/product_photos/nightstand.png', 'description' => 'A simple nightstand with drawers to store your belongings.'],
             ],
         ];
