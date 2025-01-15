@@ -22,6 +22,10 @@ class ProfileController extends Controller
     {
 
         $photos = UserPhoto::all();
+        
+        $photos = $photos->reject(function ($photo) {
+            return $photo->id == 11;
+        });
 
         return response()->json([
             'photos' => $photos->map(function ($photo) {
