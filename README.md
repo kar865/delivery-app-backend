@@ -98,18 +98,19 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 └── README.md
 
 ---
+
 ## 📍 Key API Endpoints
 
 ### 🚀 Authentication & User Management
 
 - **POST** `/register`  
   Register a new user.
-  
+
 - **POST** `/verify-otp`  
   Verify the OTP sent to the user's email for account activation.
 
 - **POST** `/login`  
-  User login with email and password.
+  Log in with email and password.
 
 - **POST** `/logout`  
   Log out the authenticated user.
@@ -119,19 +120,19 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 ### 🛍️ Products, Categories & Stores
 
 - **GET** `/categories`  
-  Get the list of product categories.
+  Retrieve a list of all product categories.
 
 - **GET** `/categories/{categoryId}/stores`  
-  Get the list of stores for a specific category.
+  Get the list of stores under a specific category.
 
 - **GET** `/stores/{storeId}/products`  
   Get the list of products for a specific store.
 
 - **GET** `/stores/{storeId}/products/{productId}`  
-  Get detailed information about a specific product.
+  View detailed information about a specific product.
 
 - **GET** `/home/products`  
-  Get a list of products displayed on the home page (x number of products).
+  Display a curated list of products for the home page.
 
 ---
 
@@ -147,17 +148,17 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
   Remove a product from the cart.
 
 - **GET** `/cart`  
-  Get the list of products in the cart.
+  View all items currently in the cart.
 
 ---
 
-### 🧑‍🤝‍🧑 Orders Management
+### 📦 Order Management
 
 - **GET** `/orders`  
-  Get the list of orders placed by the authenticated user.
+  Get a list of all orders placed by the authenticated user.
 
 - **GET** `/orders/{orderId}`  
-  Get details of a specific order.
+  View details of a specific order.
 
 - **POST** `/orders`  
   Create a new order.
@@ -166,7 +167,7 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
   Cancel a specific order.
 
 - **GET** `/orders/{orderId}/items/{itemId}`  
-  Get details of a specific item in an order.
+  View details of a specific item in an order.
 
 - **PUT** `/orders/{orderId}/items/{itemId}`  
   Update a specific item in an order.
@@ -179,7 +180,7 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 ### 💖 Favorites
 
 - **GET** `/favorites`  
-  Get the list of the user's favorite products.
+  Retrieve the user's list of favorite products.
 
 - **POST** `/favorites`  
   Add a product to the user's favorites.
@@ -195,13 +196,13 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
   Get the authenticated user's profile data.
 
 - **GET** `/profile/photos`  
-  Get the list of available profile photos.
+  Retrieve available profile photo options.
 
 - **PUT** `/profile/photo`  
   Update the user's profile photo.
 
 - **PUT** `/profile/password`  
-  Update the user's password.
+  Change the user's password.
 
 - **PUT** `/profile/first-name`  
   Update the user's first name.
@@ -210,7 +211,7 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
   Update the user's last name.
 
 - **PUT** `/profile/email`  
-  Update the user's email address.
+  Change the user's email address.
 
 - **PUT** `/profile/phone-number`  
   Update the user's phone number.
@@ -220,26 +221,40 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 
 ---
 
-### 📌 Notes:
+## 📌 Notes
 
-- All routes under **authentication**, **profile**, **favorites**, **orders**, and **cart** are protected by `auth:sanctum` middleware.  
-  This means that to access these routes, the user must be authenticated.
-  
-- Make sure to use **Sanctum Authentication** for login, registration, and other routes that require the user to be authenticated.
+- All routes for **authentication**, **profile**, **favorites**, **orders**, and **cart** are protected by `auth:sanctum`.  
+  Make sure the user is authenticated before accessing them.
 
-#### Usage
-clone the repositoryvia git clone or download the zip file.
+- Use **Laravel Sanctum** tokens for authentication in all secured requests.
 
-##### Install dependencies
-###### `composer install`
+---
 
-##### Configure environment variables
-###### ```
-cp .env.example .env
-php artisan key:generate`
+## ⚙️ Usage
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
 ```
-### In env configure your database and Gmail SMTP credentials
-###### ```
+
+### 2. Install Dependencies
+
+```bash
+composer install
+```
+
+### 3. Configure Environment Variables
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Then edit `.env` and configure your database and Gmail SMTP credentials:
+
+```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -254,11 +269,23 @@ MAIL_USERNAME=your_email@gmail.com
 MAIL_PASSWORD=your_gmail_app_password
 MAIL_ENCRYPTION=tls
 ```
-##### Run database migrations
-###### `php artisan migrate`
 
-##### Seed the database
-###### `php artisan db:seed`
+### 4. Run Migrations
 
-##### Serve locally
-###### `php artisan serve`
+```bash
+php artisan migrate
+```
+
+### 5. Seed the Database
+
+```bash
+php artisan db:seed
+```
+
+### 6. Serve Locally
+
+```bash
+php artisan serve
+```
+
+---
