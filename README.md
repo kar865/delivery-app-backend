@@ -235,7 +235,7 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/kar865/delivery-app-backend.git
 cd your-repo
 ```
 
