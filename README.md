@@ -41,7 +41,7 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 
 ## 🔧 Tech Stack
 
-- **Laravel 11**
+- **Laravel 10**
 - **MySQL**
 - **Laravel Sanctum**
 - **Gmail SMTP** (OTP delivery)
@@ -96,7 +96,7 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 ├── .env.example
 ├── composer.json
 └── README.md
-
+```
 ---
 
 ## 📍 Key API Endpoints
@@ -287,5 +287,3 @@ php artisan db:seed
 ```bash
 php artisan serve
 ```
-
----
