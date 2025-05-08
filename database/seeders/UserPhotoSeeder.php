@@ -14,38 +14,38 @@ class UserPhotoSeeder extends Seeder
     public function run(): void
     {
         UserPhoto::create([
-            'id'=>1,
+            'id' => 1,
             'photo_url' => 'storage/profile_photos/Avatar1.png',
         ]);
 
         UserPhoto::create([
-            'id'=>2,
+            'id' => 2,
             'photo_url' => 'storage/profile_photos/Avatar2.png',
         ]);
 
         UserPhoto::create([
-            'id'=>3,
+            'id' => 3,
             'photo_url' => 'storage/profile_photos/Avatar3.png',
         ]);
 
         UserPhoto::create([
-            'id'=>4,
+            'id' => 4,
             'photo_url' => 'storage/profile_photos/Avatar4.png',
         ]);
 
         UserPhoto::create([
-            'id'=>5,
+            'id' => 5,
             'photo_url' => 'storage/profile_photos/Avatar5.png',
         ]);
 
         UserPhoto::create([
-            'id'=>6,
-            'photo_url' => 'storage/profile_photos/Avatar6.png',
+            'id' => 6,
+            'photo_url' =>  'storage/profile_photos/Avatar6.png',
         ]);
 
         UserPhoto::create([
-            'id'=>11,
-            'photo_url' => 'storage/profile_photos/default_avatar.png',
+            'id' => 11,
+            'photo_url' =>  'storage/profile_photos/default_avatar.png',
         ]);
     }
 }

@@ -81,8 +81,7 @@ class ProductSeeder extends Seeder
                 ['name' => 'Nightstand', 'price' => 79.99, 'stock' => 100, 'photo_url' => 'storage/product_photos/nightstand.png', 'description' => 'A simple nightstand with drawers to store your belongings.'],
             ],
         ];
-        
-
+  
         foreach ($products as $storeName => $productList) {
             $store = Store::where('name', $storeName)->first();
 
@@ -93,7 +92,7 @@ class ProductSeeder extends Seeder
                     'stock' => $product['stock'],
                     'description' => $product['description'],
                     'store_id' => $store->id,
-                    'photo_url' => asset($product['photo_url']), 
+                    'photo_url' =>  asset($product['photo_url'])
                 ]);
             }
         }

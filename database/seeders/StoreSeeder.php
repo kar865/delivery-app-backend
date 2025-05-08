@@ -47,7 +47,7 @@ class StoreSeeder extends Seeder
                 Store::create([
                     'name' => $storeDetail['name'],
                     'category_id' => $category->id,
-                    'photo_url' => asset($storeDetail['photo_url']),
+                    'photo_url' => asset( $storeDetail['photo_url'])
                 ]);
             }
         }

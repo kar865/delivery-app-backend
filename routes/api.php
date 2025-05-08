@@ -52,7 +52,7 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 
-// Profile routes 
+// Profile routes    
 Route::middleware('auth:sanctum')->group(function () {
     // Get the authenticated user's profile data
     Route::get('/profile', [ProfileController::class, 'getProfile']);
