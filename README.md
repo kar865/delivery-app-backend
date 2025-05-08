@@ -41,7 +41,7 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 
 ## 🔧 Tech Stack
 
-- **Laravel 10**
+- **Laravel 11**
 - **MySQL**
 - **Laravel Sanctum**
 - **Gmail SMTP** (OTP delivery)
