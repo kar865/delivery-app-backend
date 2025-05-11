@@ -236,7 +236,7 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 
 ```bash
 git clone https://github.com/kar865/delivery-app-backend.git
-cd delivery-app-backedn
+cd delivery-app-backend
 ```
 
 ## 2. Install Dependencies
