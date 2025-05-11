@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductResource;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class OrderItemController extends Controller
 
         return response()->json([
             'order_item' => $orderItem,
-            'product' => $orderItem->product,
+            'product' => new ProductResource($orderItem->product),
             'quantity' => $orderItem->quantity,
             'price' => $orderItem->price,
         ]);

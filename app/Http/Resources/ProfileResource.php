@@ -15,7 +15,9 @@ class ProfileResource extends JsonResource
             'location' => $this->location,
             'phone_number' => $this->phone_number,
             'email' => $this->email,
-            'profile_photo' => asset($this->profile_photo),
+           'profile_photo' => file_exists(public_path($this->profile_photo))
+                        ? asset($this->profile_photo)
+                        : 'https://placehold.co/150x150?text=profile_photo',
         ];
     }
 }

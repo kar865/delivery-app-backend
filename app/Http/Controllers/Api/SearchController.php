@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductResource;
+use App\Http\Resources\StoreResource;
 use App\Models\Product;
 use App\Models\Store;
 use Illuminate\Http\Request;
@@ -21,8 +23,8 @@ class SearchController extends Controller
         $stores = Store::where('name', 'LIKE', '%' . $query . '%')->get();
 
         return response()->json([
-            'products' => $products,
-            'stores' => $stores
+            'products'=>ProductResource::collection($products),
+            'stores' => StoreResource::collection($stores)
         ]);
     }
 }

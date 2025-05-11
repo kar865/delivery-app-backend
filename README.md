@@ -229,3 +229,74 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 - Use **Laravel Sanctum** tokens for authentication in all secured requests.
 
 ---
+
+### ⚙️ installation
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/kar865/delivery-app-backend.git
+cd delivery-app-backedn
+```
+
+## 2. Install Dependencies
+
+```bash
+composer install
+```
+
+## 3. Configure Environment Variables
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Then edit `.env` and configure your database and Gmail SMTP credentials:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_gmail_app_password
+MAIL_ENCRYPTION=tls
+```
+
+### 4. Run Migrations
+
+```bash
+php artisan migrate
+```
+
+### 5. Seed the Database
+
+```bash
+php artisan db:seed
+```
+
+### 6. Serve Locally
+
+```bash
+php artisan serve
+```
+---
+
+## 🖼️ Image Note
+
+📷 **Product**, **Store**, and **User** images are **not included** in this repository.
+
+The seeded data references image files located under:
+
+- `storage/product_photos/`
+- `storage/profile_photos/`
+- `storage/store_photos/`
+
+If these image files are missing, the application will automatically display a **placeholder image** using a public service such as [https://placehold.co].

@@ -30,7 +30,9 @@ class ProfileController extends Controller
             'photos' => $photos->map(function ($photo) {
                 return [
                     'id' => $photo->id,
-                    'photo_url' => asset($photo->photo_url),
+                    'profile_photo' => file_exists(public_path($photo->photo_url))
+                        ? asset($photo->photo_url)
+                        : 'https://placehold.co/150x150?text=profile_photo',
                 ];
             })
         ]);
