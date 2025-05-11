@@ -49,7 +49,7 @@ A RESTful API backend for a delivery application, built using **Laravel**. This 
 
 ---
 
-## 🗂️ Project Structure
+## 🗂️ The Main Project Structure
 
 ```bash
 ├── app/
